@@ -36,16 +36,17 @@ h2{font-size:13px;letter-spacing:.06em;color:var(--muted);margin:22px 0 8px;font
 .chip b{font-weight:700}
 .pick{background:var(--accent);color:var(--accent-fg)}
 .addr{margin:10px 0 0;font-size:14px;overflow-wrap:anywhere}
-.note{margin:8px 0 0;font-size:13px;background:var(--note-bg);color:var(--note-fg);border-radius:6px;padding:6px 9px;overflow-wrap:anywhere}
+.note{white-space:pre-line;margin:8px 0 0;font-size:13px;background:var(--note-bg);color:var(--note-fg);border-radius:6px;padding:6px 9px;overflow-wrap:anywhere}
 .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .btn{font:inherit;font-size:15px;font-weight:700;text-decoration:none;border-radius:10px;padding:11px 14px;min-height:44px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
-.btn.go{flex:1 1 150px;background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.btn.go{flex:1 1 150px}
+.btn.go{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 .btn.sub{flex:0 1 auto;font-weight:500}
 .none{font-size:13.5px;color:var(--muted)}
 .no{flex:none;align-self:center;min-width:26px;height:26px;padding:0 7px;box-sizing:border-box;border-radius:13px;background:var(--red);color:var(--red-fg);font-size:14px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
 .empty{color:var(--muted);text-align:center;padding:28px 0}
 .cnt-t{margin:14px 0 6px;font-size:12.5px;font-weight:700;color:var(--muted)}
-.cnt{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.cnt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
 .cnt label{display:flex;flex-direction:column;gap:3px;font-size:12px;color:var(--muted);min-width:0}
 .cnt select{font:inherit;font-size:16px;width:100%;box-sizing:border-box;min-height:44px;padding:6px 2px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
 .cnt select.on{border-color:var(--accent);background:var(--chip);font-weight:700;color:var(--fg)}
@@ -53,6 +54,32 @@ h2{font-size:13px;letter-spacing:.06em;color:var(--muted);margin:22px 0 8px;font
 .sum .chip{color:var(--fg)}
 .sum .rst{font:inherit;font-size:12.5px;margin-left:auto;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
 @media (max-width:360px){.cnt{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.pay{display:flex;align-items:center;gap:8px;margin:10px 0 2px}
+.pay span{font-size:12.5px;font-weight:700;color:var(--muted);white-space:nowrap}
+.pay input{font:inherit;font-size:16px;flex:1;min-width:0;box-sizing:border-box;min-height:44px;padding:6px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-align:right;font-variant-numeric:tabular-nums}
+.pay input.on{border-color:var(--accent);background:var(--chip);font-weight:700}
+.pay em{font-style:normal;font-size:14px;color:var(--muted)}
+.pay .paid{font:inherit;font-size:14px;white-space:nowrap;min-height:44px;padding:0 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.pay .paid.on{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);font-weight:700}
+.pk{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.pk button{font:inherit;font-size:15px;min-height:44px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.pk button.on1{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);font-weight:700}
+.pk button.on2{background:var(--red);border-color:var(--red);color:var(--red-fg);font-weight:700}
+.scan{margin:10px 16px 0}
+.scan button{font:inherit;font-size:15px;font-weight:700;width:100%;min-height:48px;border-radius:10px;border:1px dashed var(--accent);background:var(--surface);color:var(--accent);cursor:pointer}
+.scan button[disabled]{opacity:.6}
+.ovl{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:flex-end;justify-content:center;z-index:50}
+.ovl[hidden]{display:none}
+.ovl .box{background:var(--surface);color:var(--fg);width:100%;max-width:520px;max-height:88vh;overflow:auto;border-radius:16px 16px 0 0;padding:16px 16px calc(16px + env(safe-area-inset-bottom))}
+.ovl h3{margin:0 0 8px;font-size:16px}
+.ovl ul{list-style:none;margin:8px 0;padding:0;font-size:14px}
+.ovl li{padding:7px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
+.ovl li b{font-variant-numeric:tabular-nums;text-align:right}
+.ovl .warn{background:var(--note-bg);color:var(--note-fg);border-radius:8px;padding:8px 10px;font-size:13px;margin:8px 0}
+.ovl .okm{color:var(--accent);font-size:13px;margin:8px 0;font-weight:700}
+.ovl-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.ovl-acts button{font:inherit;font-size:15px;min-height:46px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.ovl-acts .go2{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);font-weight:700}
 .intro{display:grid;gap:10px;margin-top:10px}
 .intro .hint{margin:0}
 </style>
@@ -65,38 +92,38 @@ h2{font-size:13px;letter-spacing:.06em;color:var(--muted);margin:22px 0 8px;font
 <section class="intro">
   <p class="hint">「네이버지도 길안내」를 누르면 네이버지도 앱이 열리고 해당 주소가 검색됩니다. 앱에서 「도착」을 누르면 길안내가 시작됩니다.</p>
 </section>
+<div class="scan"><button type="button" id="scanBtn">📷 배송표 촬영해서 수량 자동 입력</button><input type="file" id="scanFile" accept="image/*" hidden></div>
+<div class="ovl" id="ovl" hidden><div class="box" role="dialog" aria-modal="true" aria-label="읽은 수량 확인"><div id="ovlBody"></div><div class="ovl-acts"><button type="button" id="ovlNo">취소</button><button type="button" id="ovlYes" class="go2">적용</button></div></div></div>
 <main id="app"></main>
 
 <script>
 var APPNAME = "com.insung.delivery";
 var DATA = [
- {g:"연수구",no:19,n:"삼성내과",pick:"매일 바트수거",day:"매일",pay:"월말결제",a:"연수구 옥련동 462-10 해창빌딩 5층",q:"원흥아파트.옥련시장",note:"안으로 들어가서 왼쪽 간호사님께 물어보세요"},
- {g:"연수구",n:"헤어254",pay:"월말결제",a:"연수구 옥련로99번길 39, 1층",q:"인천 연수구 옥련로99번길 39"},
- {g:"연수구",n:"하나태권도",pay:"말일결제",a:"연수구 능허대로79번길 66 2층",q:"인천 연수구 능허대로79번길 66"},
- {g:"연수구",no:20,n:"동의당약국",day:"매일",pay:"말일결제",a:"연수구 한진로 23",q:"인천 연수구 한진로 23"},
- {g:"연수구",no:1,n:"한국지오인텍스연구원",pay:"월말결제",a:"연수구 청량로109번길 47",q:"인천 연수구 청량로109번길 47"},
- {g:"연수구",no:3,n:"연수오케이정형외과 / 장지우",qty:[["스페셜",10]],pick:"다음날 수거, 금요일은 당일수거",day:"매일",pay:"금요일결제",a:"연수구 앵고개로264번길 30-4 4층",q:"인천 연수구 앵고개로264번길 30-4",note:"배송장소: 지하1층(7505*)"},
- {g:"연수구",no:2,n:"메가커피 인천동춘점",qty:[["일반",3]],pick:"다음날 수거",pay:"사이트결제",a:"연수구 앵고개로264번길 41",q:"인천 연수구 앵고개로264번길 41"},
+ {g:"연수구",no:18,n:"삼성내과",pick:"매일 바트수거",day:"매일",pay:"월말결제",a:"연수구 옥련동 462-10 해창빌딩 5층",q:"원흥아파트.옥련시장",note:"안으로 들어가서 왼쪽 간호사님께 물어보세요"},
+ {g:"연수구",no:19,n:"동의당약국",day:"매일",pay:"말일결제",a:"연수구 한진로 23",q:"인천 연수구 한진로 23"},
+ {g:"연수구",no:20,n:"한국지오인텍스연구원",pay:"월말결제",a:"연수구 청량로109번길 47",q:"인천 연수구 청량로109번길 47"},
+ {g:"연수구",no:2,n:"연수오케이정형외과",qty:[["스페셜",10]],pick:"다음날 수거, 금요일은 당일수거",day:"매일",pay:"금요일결제",a:"연수구 앵고개로264번길 30-4 4층",q:"인천 연수구 앵고개로264번길 30-4",note:"배송장소: 지하1층(7505*)"},
+ {g:"연수구",no:1,n:"메가커피 인천동춘점",qty:[["일반",3]],pick:"다음날 수거",pay:"사이트결제",a:"연수구 앵고개로264번길 41",q:"인천 연수구 앵고개로264번길 41"},
  {g:"연수구",n:"드림동물병원",pick:"다음날 수거, 금요일은 당일수거",pay:"사이트결제",a:"연수구 먼우금로 88 105호",q:"인천 연수구 먼우금로 88"},
- {g:"연수구",no:4,n:"연희동물의료센터 / 김소희",qty:[["일반",11]],pick:"다음날 수거, 금요일은 당일수거",pay:"말일결제",a:"연수구 청능대로 93 이리옴프라자 301-1호 (1040*)",q:"인천 연수구 청능대로 93"},
- {g:"연수구",no:17,n:"트윈클어학원 6층",pick:"월~목 수거",day:"매일",pay:"월말결제-계좌",a:"연수구 신송로 154 더제니스빌딩 6층 왼쪽",q:"인천 연수구 신송로 154",note:"배송+수거"},
- {g:"연수구",no:17,n:"트윈클어학원 7층",pick:"월~목 수거",a:"연수구 신송로 154 더제니스빌딩 7층 왼쪽",q:"인천 연수구 신송로 154",note:"배송+수거"},
- {g:"연수구",no:18,n:"송도키즈스포츠단",pick:"매일수거",a:"연수구 해돋이로 167 힐링프라자 5층 (송도동 22-2)",q:"인천 연수구 해돋이로 167"},
- {g:"남동구",n:"해오름 아동발달클리닉 / 김태은 (4층)",pick:"다음날 수거, 금요일은 당일수거",pay:"현장결제",a:"남동구 에코중앙로 152 4층",q:"인천 남동구 에코중앙로 152"},
- {g:"남동구",n:"해오름 아동발달클리닉 / 김태은 (3층)",pick:"다음날 수거, 금요일은 당일수거",day:"매일",pay:"금요일결제",a:"남동구 에코중앙로 152 3층",q:"인천 남동구 에코중앙로 152"},
- {g:"남동구",no:6,n:"양지온누리약국",qty:[["많이",1],["스페셜","특양 많이"]],pick:"다음날 수거, 금요일은 당일수거",a:"남동구 에코중앙로156번길 5-19",q:"인천 남동구 에코중앙로156번길 5-19"},
- {g:"남동구",no:5,n:"클린톡스의원",time:"11:30 ~ 11:40",pick:"다음날 수거, 금요일은 당일수거",day:"월·화·수·금",pay:"금요일결제",a:"남동구 논고개로 80 나노프라자 201호 (논현동)",q:"인천 남동구 논고개로 80",note:"주차위치: 버스정류소앞"},
- {g:"남동구",no:7,n:"도림동 공사현장",time:"11:30",qty:[["많이",9],["스페셜","특양 많이"]],pick:"다음날 수거, 금요일은 당일수거",pay:"말일결제",a:"도림동 222",q:"인천 남동구 도림동 222"},
- {g:"남동구",no:8,n:"자연놀이학교 루시어린이집",qty:[["일반",2],["스페셜","바트"]],pick:"다음날 수거, 금요일은 당일수거",pay:"말일결제",a:"남동구 오봉동로4번길 32",q:"인천 남동구 오봉동로4번길 32",tel:"010-3762-0406",note:"출입문 비번 6698*"},
- {g:"남동구",no:9,n:"GDS / 김별이",time:"12:00",pick:"다음날 수거, 금요일은 당일수거",pay:"말일결제",a:"남동구 오봉동로4번길 31",q:"인천 남동구 오봉동로4번길 31"},
- {g:"남동구",no:10,n:"서창내과",time:"12:00",qty:[["일반",5]],pick:"다음날 수거, 금요일은 당일수거",day:"월·목·금",pay:"말일결제-카드",a:"남동구 매소홀로 1137 2층",q:"인천 남동구 매소홀로 1137"},
- {g:"남동구",no:11,n:"신세기안경원 (서창내과 건물)",qty:[["일반",2]],day:"월·목·금",pay:"월말결제",a:"남동구 매소홀로 1137 1층",q:"인천 남동구 매소홀로 1137"},
- {g:"남동구",no:12,n:"청선학교",time:"11:30",qty:[["많이",27]],pick:"매일 수거",pay:"말일결제",a:"남동구 인주대로914번길 16 5층 복도 (엘베 좌측)",q:"인천 남동구 인주대로914번길 16"},
- {g:"남동구",no:15,n:"더베스트정형외과",qty:[["일반",9],["많이",9]],pick:"수거",pay:"월말결제",a:"남동구 호구포로 804 예담더스타 2층",q:"인천 남동구 호구포로 804",note:"9월 28일부터 시작"},
+ {g:"연수구",no:3,n:"연희동물의료센터",qty:[["일반",11]],pick:"다음날 수거, 금요일은 당일수거",pay:"말일결제",a:"연수구 청능대로 93 이리옴프라자 301-1호 (1040*)",note:"주차위치: 지하주차장",q:"인천 연수구 청능대로 93"},
+ {g:"연수구",no:16,n:"트윈클어학원 6층",pick:"월~목 수거",day:"매일",pay:"월말결제-계좌",a:"연수구 신송로 154 더제니스빌딩 6층 왼쪽",q:"인천 연수구 신송로 154",note:"배송+수거\n주차위치: 지하주차장"},
+ {g:"연수구",no:16,n:"트윈클어학원 7층",pick:"월~목 수거",a:"연수구 신송로 154 더제니스빌딩 7층 왼쪽",q:"인천 연수구 신송로 154",note:"배송+수거\n주차위치: 지하주차장"},
+ {g:"연수구",no:17,n:"송도키즈스포츠단",pick:"매일수거",a:"연수구 해돋이로 167 힐링프라자 5층 (송도동 22-2)",note:"주차위치: 지하주차장",q:"인천 연수구 해돋이로 167"},
+ {g:"남동구",n:"해오름 아동발달클리닉 (4층)",pick:"다음날 수거, 금요일은 당일수거",pay:"현장결제",a:"남동구 에코중앙로 152 4층",q:"인천 남동구 에코중앙로 152"},
+ {g:"남동구",n:"해오름 아동발달클리닉 (3층)",pick:"다음날 수거, 금요일은 당일수거",day:"매일",pay:"금요일결제",a:"남동구 에코중앙로 152 3층",q:"인천 남동구 에코중앙로 152"},
+ {g:"남동구",no:5,n:"양지온누리약국",qty:[["많이",1],["스페셜","특양 많이"]],pick:"다음날 수거, 금요일은 당일수거",a:"남동구 에코중앙로156번길 5-19",q:"인천 남동구 에코중앙로156번길 5-19"},
+ {g:"남동구",no:4,n:"클린톡스의원",time:"11:30 ~ 11:40",pick:"다음날 수거, 금요일은 당일수거",day:"월·화·수·금",pay:"금요일결제",a:"남동구 논고개로 80 나노프라자 201호 (논현동)",q:"인천 남동구 논고개로 80",note:"주차위치: 버스정류소앞"},
+ {g:"남동구",no:6,n:"도림동 공사현장",time:"11:30",qty:[["많이",9],["스페셜","특양 많이"]],pick:"다음날 수거, 금요일은 당일수거",pay:"말일결제",a:"도림동 222",q:"인천 남동구 도림동 222"},
+ {g:"남동구",no:7,n:"자연놀이학교 루시어린이집",qty:[["일반",2],["스페셜","바트"]],pick:"다음날 수거, 금요일은 당일수거",pay:"말일결제",a:"남동구 오봉동로4번길 32",q:"인천 남동구 오봉동로4번길 32",tel:"010-3762-0406",note:"출입문 비번 6698*"},
+ {g:"남동구",no:8,n:"GDS",time:"12:00",pick:"다음날 수거, 금요일은 당일수거",pay:"말일결제",a:"남동구 오봉동로4번길 31",q:"인천 남동구 오봉동로4번길 31"},
+ {g:"남동구",no:9,n:"서창내과",time:"12:00",qty:[["일반",5]],pick:"다음날 수거, 금요일은 당일수거",day:"월·목·금",pay:"말일결제-카드",a:"남동구 매소홀로 1137 2층",q:"인천 남동구 매소홀로 1137"},
+ {g:"남동구",no:10,n:"신세기안경원 (서창내과 건물)",qty:[["일반",2]],day:"월·목·금",pay:"월말결제",a:"남동구 매소홀로 1137 1층",q:"인천 남동구 매소홀로 1137"},
+ {g:"남동구",no:11,n:"청선학교(인천발달장애인)",time:"11:30",qty:[["많이",27]],pick:"매일 수거",pay:"말일결제",a:"남동구 인주대로914번길 16 5층 복도 (엘베 좌측)",q:"인천 남동구 인주대로914번길 16"},
+ {g:"남동구",no:14,n:"더베스트정형외과",qty:[["일반",9],["많이",9]],pick:"수거",pay:"월말결제",a:"남동구 호구포로 804 예담더스타 2층",q:"인천 남동구 호구포로 804",note:"9월 28일부터 시작\n주차위치: 지하주차장"},
  {g:"남동구",n:"청십자약국",pay:"월말결제",a:"남동구 호구포로 804 예담더스타 1층",q:"인천 남동구 호구포로 804"},
- {g:"남동구",no:13,n:"족발집",time:"2:00 ~ 4:00",pick:"수거",pay:"말일결제",a:"남동구 구월동 1239-18 1층",q:"인천 남동구 구월동 1239-18",note:"수거할 때 배송 · 반찬 보온가방 배송(3인분)"},
- {g:"남동구",no:14,n:"지원",qty:[["스페셜",4]],pick:"수거",pay:"말일결제-계좌",a:"구월남로 260번길 20 1층",q:"인천 남동구 구월남로260번길 20"},
- {g:"남동구",no:16,n:"slp 어학원",time:"12:20",qty:[["일반","바트1, 국통1"]],pick:"수거",pay:"말일-카드",a:"남동구 용천로 87 3층 서강slp어학원",q:"인천 남동구 용천로 87 103호"},
+ {g:"남동구",no:12,n:"족발집",time:"2:00 ~ 4:00",pick:"수거",pay:"말일결제",a:"남동구 구월동 1239-18 1층",q:"인천 남동구 구월동 1239-18",note:"수거할 때 배송 · 반찬 보온가방 배송(3인분)"},
+ {g:"남동구",no:13,n:"지원",qty:[["스페셜",4]],pick:"수거",pay:"말일결제-계좌",a:"구월남로 260번길 20 1층",q:"인천 남동구 구월남로260번길 20"},
+ {g:"남동구",no:15,n:"slp 어학원",time:"12:20",qty:[["일반","바트1, 국통1"]],pick:"수거",pay:"말일-카드",a:"남동구 용천로 87 3층 서강slp어학원",q:"인천 남동구 용천로 87 103호"},
  {g:"기타",n:"기사님 식사",a:""}
 ];
 
@@ -111,31 +138,40 @@ function appLink(q){
 function webLink(q){ return "https://map.naver.com/p/search/" + encodeURIComponent(q); }
 function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
 
-var KINDS = ["일반","양많이","스페셜","샐러드","바트"];
+var KINDS = ["일반","양많이","특양많이","스페셜","샐러드","바트"];
 var LABEL = {"많이":"양많이","밑반/샐러드":"샐러드"};
-var STORE = "baesong-counts-v1";
+var DB = "https://baesong-5ac3f-default-rtdb.asia-southeast1.firebasedatabase.app";
+function todayKey(){ return new Date(Date.now()+9*3600*1000).toISOString().slice(0,10).replace(/-/g,""); }
+var DAY = todayKey();
+var BASE = DB + "/baesong/" + DAY;
+var STORE = "baesong-counts-" + DAY;
 var counts = {};
 try { counts = JSON.parse(localStorage.getItem(STORE) || "{}") || {}; } catch(e) { counts = {}; }
-var SEED_KEY = "baesong-seed-20261105";
 var SEED = {
- "연수오케이정형외과 / 장지우":{"스페셜":10},
+ "연수오케이정형외과":{"스페셜":10},
  "메가커피 인천동춘점":{"일반":3},
- "연희동물의료센터 / 김소희":{"일반":11},
+ "연희동물의료센터":{"일반":11},
  "양지온누리약국":{"양많이":1},
  "도림동 공사현장":{"양많이":9},
  "자연놀이학교 루시어린이집":{"일반":2},
  "서창내과":{"일반":5},
  "신세기안경원 (서창내과 건물)":{"일반":2},
- "청선학교":{"양많이":27},
+ "청선학교(인천발달장애인)":{"양많이":27},
  "더베스트정형외과":{"일반":9,"양많이":9},
  "지원":{"스페셜":4},
  "slp 어학원":{"바트":1},
  "기사님 식사":{"일반":1}
 };
-try { if (!localStorage.getItem(SEED_KEY)) { counts = {}; Object.keys(SEED).forEach(function(nm){ counts[nm] = JSON.parse(JSON.stringify(SEED[nm])); }); localStorage.setItem(SEED_KEY,"1"); localStorage.setItem(STORE, JSON.stringify(counts)); } } catch(e) { if (!Object.keys(counts).length) counts = JSON.parse(JSON.stringify(SEED)); }
 function save(){ try { localStorage.setItem(STORE, JSON.stringify(counts)); } catch(e) {} }
 var OPTS = '<option value="">-</option>';
 for (var n = 1; n <= 50; n++) OPTS += '<option value="'+n+'">'+n+'</option>';
+
+function payBlock(d){
+  var cur = counts[d.n] || {};
+  var a = cur._amt ? String(cur._amt).replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
+  var h = '<div class="pay"><span>결제금액</span><input type="text" inputmode="numeric" class="amt'+(a?' on':'')+'" data-name="'+esc(d.n)+'" value="'+a+'" placeholder="0" aria-label="'+esc(d.n)+' 결제금액"><em>원</em><button type="button" class="paid'+(cur._paid?' on':'')+'" data-paid="1" data-name="'+esc(d.n)+'" aria-pressed="'+(cur._paid?'true':'false')+'">결제완료</button></div>';
+  return h;
+}
 
 function countBlock(d){
   var cur = counts[d.n] || {};
@@ -145,23 +181,33 @@ function countBlock(d){
     var o = OPTS.replace('value="'+v+'"', 'value="'+v+'" selected');
     h += '<label>'+k+'<select data-name="'+esc(d.n)+'" data-kind="'+k+'" class="'+(v?'on':'')+'" aria-label="'+esc(d.n)+' '+k+' 수량">'+o+'</select></label>';
   });
-  return h + '</div>';
+  h += '</div>';
+  h += '<div class="pk" role="group" aria-label="수거 여부"><button type="button" data-pk="1" data-name="'+esc(d.n)+'" class="'+(cur._pk===1?'on1':'')+'">수거완료</button><button type="button" data-pk="2" data-name="'+esc(d.n)+'" class="'+(cur._pk===2?'on2':'')+'">미수거</button></div>';
+  return h;
 }
 
 function renderSum(armed){
-  var tot = {}, any = false;
-  Object.keys(counts).forEach(function(nm){ KINDS.forEach(function(k){ var v = +(counts[nm]||{})[k]||0; if (v){ tot[k]=(tot[k]||0)+v; any = true; } }); });
+  var tot = {}, any = false, amt = 0, p1 = 0, p2 = 0, pd = 0;
+  Object.keys(counts).forEach(function(nm){
+    var c = counts[nm] || {};
+    KINDS.forEach(function(k){ var v = +c[k]||0; if (v){ tot[k]=(tot[k]||0)+v; any = true; } });
+    if (+c._amt) { amt += +c._amt; any = true; }
+    if (c._paid) { pd++; any = true; }
+    if (c._pk === 1) { p1++; any = true; } else if (c._pk === 2) { p2++; any = true; }
+  });
   var h = '<span>합계</span>';
   if (any) KINDS.forEach(function(k){ if (tot[k]) h += '<span class="chip">'+k+' <b>'+tot[k]+'</b></span>'; });
-  else h += '<span>선택 없음</span>';
-  if (any) h += '<button type="button" class="rst" id="rst">'+(armed?'한 번 더 누르면 초기화':'수량 초기화')+'</button>';
+  if (amt) h += '<span class="chip">결제 <b>'+String(amt).replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'원</b></span>';
+  if (pd) h += '<span class="chip">결제완료 <b>'+pd+'</b>곳</span>';
+  if (p1 || p2) h += '<span class="chip">수거완료 <b>'+p1+'</b> · 미수거 <b>'+p2+'</b></span>';
+  if (!any) h += '<span>선택 없음</span>';
+  if (any) h += '<button type="button" class="rst" id="rst">'+(armed?'한 번 더 누르면 초기화':'전체 초기화')+'</button>';
   document.getElementById("sum").innerHTML = h;
 }
 
 function card(d){
-  var h = '<article class="card"><div class="head">'+(d.no?'<span class="no" aria-label="번호 '+d.no+'">'+d.no+'</span>':'')+'<h3 class="name">'+esc(d.n)+'</h3>'+(d.time?'<span class="time">'+esc(d.time)+'</span>':'')+'</div>';
+  var h = '<article class="card"><div class="head">'+(d.no?'<span class="no" aria-label="번호 '+d.no+'">'+d.no+'</span>':'')+'<h3 class="name">'+esc(d.n)+'</h3>'+(d.time?'<span class="time">'+esc(d.time)+'</span>':'')+'</div>' + payBlock(d);
   var chips = [];
-  (d.qty||[]).forEach(function(x){ chips.push('<span class="chip">'+esc(LABEL[x[0]]||x[0])+' <b>'+esc(x[1])+'</b></span>'); });
   if (d.pick) chips.push('<span class="chip pick">'+esc(d.pick)+'</span>');
   if (d.day) chips.push('<span class="chip">주문 '+esc(d.day)+'</span>');
   if (d.pay) chips.push('<span class="chip">'+esc(d.pay)+'</span>');
@@ -194,6 +240,95 @@ function render(){
   renderSum(false);
 }
 
+
+/* ---- 실시간 공유 (Firebase Realtime Database, REST) ---- */
+function ek(nm){ return encodeURIComponent(nm).replace(/\./g,"%2E"); }
+var NAMES = {}; DATA.forEach(function(d){ NAMES[ek(d.n)] = d.n; });
+var root = null, gotFirst = false;
+var syncEl = document.createElement("p");
+syncEl.id = "sync"; syncEl.style.cssText = "margin:6px 16px 0;font-size:12px;color:var(--muted)";
+document.getElementById("app").parentNode.insertBefore(syncEl, document.getElementById("app"));
+function setSync(ok, msg){ syncEl.textContent = (ok ? "● " : "○ ") + msg; syncEl.style.color = ok ? "var(--accent)" : "var(--muted)"; }
+setSync(false, "연결 중…");
+
+function refreshSelects(){
+  var list = document.querySelectorAll("select[data-kind]");
+  for (var i = 0; i < list.length; i++) {
+    var s = list[i];
+    var v = ((counts[s.getAttribute("data-name")] || {})[s.getAttribute("data-kind")]) || "";
+    if (String(s.value) !== String(v)) s.value = String(v);
+    s.className = v ? "on" : "";
+  }
+  var inp = document.querySelectorAll("input.amt");
+  for (var j = 0; j < inp.length; j++) {
+    var x = inp[j]; if (document.activeElement === x) continue;
+    var a = (counts[x.getAttribute("data-name")] || {})._amt || "";
+    x.value = a ? String(a).replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
+    x.className = "amt" + (a ? " on" : "");
+  }
+  var pb = document.querySelectorAll("button[data-paid]");
+  for (var q2 = 0; q2 < pb.length; q2++) {
+    var on = !!(counts[pb[q2].getAttribute("data-name")] || {})._paid;
+    pb[q2].className = "paid" + (on ? " on" : ""); pb[q2].setAttribute("aria-pressed", on ? "true" : "false");
+  }
+  var bt = document.querySelectorAll("button[data-pk]");
+  for (var m = 0; m < bt.length; m++) {
+    var b = bt[m], pk = (counts[b.getAttribute("data-name")] || {})._pk || 0, w = +b.getAttribute("data-pk");
+    b.className = pk === w ? "on" + w : "";
+  }
+}
+function applyRemote(){
+  var rc = (root && root.counts) || {}, c = {};
+  Object.keys(rc).forEach(function(k){
+    var nm = NAMES[k]; if (!nm || !rc[k]) return;
+    var o = {}; KINDS.concat(['_amt','_pk','_paid']).forEach(function(kd){ var n = +rc[k][kd]; if (n) o[kd] = n; });
+    if (Object.keys(o).length) c[nm] = o;
+  });
+  counts = c; save(); refreshSelects(); renderSum(false);
+}
+function setPath(path, data){
+  if (path === "/" || path === "") { root = data; return; }
+  var parts = path.split("/").filter(Boolean);
+  if (root === null || typeof root !== "object") root = {};
+  var o = root;
+  for (var i = 0; i < parts.length - 1; i++) {
+    if (o[parts[i]] === null || typeof o[parts[i]] !== "object" || o[parts[i]] === undefined) o[parts[i]] = {};
+    o = o[parts[i]];
+  }
+  var last = parts[parts.length - 1];
+  if (data === null) delete o[last]; else o[last] = data;
+}
+function seedRemote(){
+  var enc = {};
+  Object.keys(SEED).forEach(function(nm){ enc[ek(nm)] = SEED[nm]; });
+  root = { seeded: true, counts: enc };
+  fetch(BASE + ".json", { method: "PUT", body: JSON.stringify(root) }).catch(function(){});
+}
+function onStream(ev){
+  var m; try { m = JSON.parse(ev.data); } catch(e) { return; }
+  if (!m) return;
+  if (ev.type === "put") setPath(m.path, m.data);
+  else if (ev.type === "patch") Object.keys(m.data || {}).forEach(function(k){ setPath((m.path === "/" ? "" : m.path) + "/" + k, m.data[k]); });
+  if (!gotFirst) { gotFirst = true; if (root === null || !root.seeded) seedRemote(); }
+  applyRemote();
+  setSync(true, "실시간 공유 중 · 다른 폰의 변경이 바로 반영됩니다");
+}
+function startSync(){
+  if (!window.EventSource) { setSync(false, "이 브라우저는 실시간 공유를 지원하지 않아 이 폰에만 저장됩니다"); return; }
+  var es = new EventSource(BASE + ".json");
+  es.addEventListener("put", onStream);
+  es.addEventListener("patch", onStream);
+  es.onerror = function(){
+    setSync(false, "연결 끊김 · 이 폰에만 저장 중 (연결되면 자동으로 다시 공유)");
+    if (!gotFirst && !Object.keys(counts).length) { counts = JSON.parse(JSON.stringify(SEED)); refreshSelects(); renderSum(false); }
+  };
+}
+function push(nm, k, n){
+  var url = BASE + "/counts/" + encodeURIComponent(ek(nm)) + "/" + encodeURIComponent(k) + ".json";
+  var req = n ? fetch(url, { method: "PUT", body: JSON.stringify(n) }) : fetch(url, { method: "DELETE" });
+  req.catch(function(){ setSync(false, "저장 실패 · 연결을 확인하세요"); });
+}
+document.addEventListener("visibilitychange", function(){ if (!document.hidden && todayKey() !== DAY) location.reload(); });
 document.getElementById("q").addEventListener("input", render);
 document.getElementById("app").addEventListener("change", function(ev){
   var s = ev.target.closest("select[data-kind]"); if (!s) return;
@@ -202,14 +337,120 @@ document.getElementById("app").addEventListener("change", function(ev){
   if (s.value) counts[nm][k] = +s.value; else delete counts[nm][k];
   if (!Object.keys(counts[nm]).length) delete counts[nm];
   s.className = s.value ? "on" : "";
-  save(); renderSum(false);
+  save(); renderSum(false); push(nm, k, +s.value || 0);
+});
+document.getElementById("app").addEventListener("change", function(ev){
+  var x = ev.target.closest("input.amt"); if (!x) return;
+  var nm = x.getAttribute("data-name"), n = parseInt(x.value.replace(/[^0-9]/g, ""), 10) || 0;
+  counts[nm] = counts[nm] || {};
+  if (n) counts[nm]._amt = n; else delete counts[nm]._amt;
+  if (!Object.keys(counts[nm]).length) delete counts[nm];
+  x.value = n ? String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",") : "";
+  x.className = "amt" + (n ? " on" : "");
+  save(); renderSum(false); push(nm, "_amt", n);
+});
+document.getElementById("app").addEventListener("click", function(ev){
+  var pdb = ev.target.closest("button[data-paid]");
+  if (pdb) {
+    var pn = pdb.getAttribute("data-name");
+    counts[pn] = counts[pn] || {};
+    var pv = counts[pn]._paid ? 0 : 1;
+    if (pv) counts[pn]._paid = 1; else delete counts[pn]._paid;
+    if (!Object.keys(counts[pn]).length) delete counts[pn];
+    save(); refreshSelects(); renderSum(false); push(pn, "_paid", pv);
+    return;
+  }
+  var b = ev.target.closest("button[data-pk]"); if (!b) return;
+  var nm = b.getAttribute("data-name"), w = +b.getAttribute("data-pk");
+  counts[nm] = counts[nm] || {};
+  var nv = counts[nm]._pk === w ? 0 : w;
+  if (nv) counts[nm]._pk = nv; else delete counts[nm]._pk;
+  if (!Object.keys(counts[nm]).length) delete counts[nm];
+  save(); refreshSelects(); renderSum(false); push(nm, "_pk", nv);
 });
 var armed = false, armTimer = null;
 document.getElementById("sum").addEventListener("click", function(ev){
   if (!ev.target.closest("#rst")) return;
   if (!armed) { armed = true; renderSum(true); armTimer = setTimeout(function(){ armed = false; renderSum(false); }, 3000); return; }
-  clearTimeout(armTimer); armed = false; counts = {}; save(); render();
+  clearTimeout(armTimer); armed = false; counts = {}; save(); render(); fetch(BASE + "/counts.json", { method: "DELETE" }).catch(function(){});
 });
+/* ---- 배송표 촬영 -> 수량 자동 입력 (/api/read-sheet) ---- */
+var CODEKEY = "baesong-code", scanResult = null;
+function shrink(file, cb){
+  var url = URL.createObjectURL(file), img = new Image();
+  img.onload = function(){
+    var max = 2000, r = Math.min(1, max / Math.max(img.width, img.height));
+    var c = document.createElement("canvas"); c.width = Math.round(img.width * r); c.height = Math.round(img.height * r);
+    c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+    URL.revokeObjectURL(url); cb(c.toDataURL("image/jpeg", 0.85));
+  };
+  img.onerror = function(){ URL.revokeObjectURL(url); cb(null); };
+  img.src = url;
+}
+function ovlShow(html, canApply){ document.getElementById("ovlBody").innerHTML = html; document.getElementById("ovlYes").hidden = !canApply; document.getElementById("ovl").hidden = false; }
+function ovlHide(){ document.getElementById("ovl").hidden = true; scanResult = null; }
+function scanCall(dataUrl, retry){
+  var code = ""; try { code = localStorage.getItem(CODEKEY) || ""; } catch(e) {}
+  return fetch("/api/read-sheet", { method: "POST", headers: { "content-type": "application/json", "x-access-code": code },
+    body: JSON.stringify({ image: dataUrl, names: DATA.map(function(d){ return d.n; }) }) })
+  .then(function(r){
+    if (r.status === 401 && !retry) {
+      var c = window.prompt("접속 코드를 입력하세요"); if (!c) throw new Error("접속 코드가 필요합니다.");
+      try { localStorage.setItem(CODEKEY, c); } catch(e) {}
+      return scanCall(dataUrl, true);
+    }
+    return r.json().then(function(j){ if (!r.ok) throw new Error(j.error || ("오류 " + r.status)); return j; });
+  });
+}
+function showScan(j){
+  var rows = (j.rows || []).filter(function(x){ return x && x.name && NAMES[ek(x.name)]; });
+  var bad = (j.rows || []).filter(function(x){ return !x || !x.name || !NAMES[ek(x.name)]; });
+  var sum = {}; KINDS.forEach(function(k){ sum[k] = 0; });
+  var li = rows.map(function(x){
+    var parts = []; KINDS.forEach(function(k){ var n = +x[k] || 0; if (n) { parts.push(k + " " + n); sum[k] += n; } });
+    var am = Math.round(+x["금액"] || 0); if (am > 0) parts.push("결제 " + String(am).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원");
+    return '<li><span>'+esc(x.name)+'</span><b>'+(parts.join(" · ") || "-")+'</b></li>';
+  });
+  var h = '<h3>읽은 수량을 확인하세요</h3>';
+  if (!rows.length) { ovlShow(h + '<p class="warn">읽은 수량이 없습니다. 표가 잘 보이게 다시 촬영해 주세요.</p>', false); return; }
+  var warns = [];
+  if (j.totals) ["일반","양많이","스페셜"].forEach(function(k){ var t = +j.totals[k]; if (t >= 0 && t !== sum[k]) warns.push(k + ": 표 합계 " + t + " ≠ 읽은 합계 " + sum[k]); });
+  if (j.date) { var d = j.date.replace(/-/g, ""); if (d !== DAY) warns.push("표 날짜(" + j.date + ")가 오늘과 다릅니다."); }
+  if (bad.length) warns.push("목록에 없는 행 " + bad.length + "개는 무시됩니다.");
+  h += '<ul>' + li.join("") + '</ul>';
+  h += '<p class="okm">합계 ' + KINDS.filter(function(k){ return sum[k]; }).map(function(k){ return k + " " + sum[k]; }).join(" · ") + '</p>';
+  if (j.totals && !warns.some(function(w){ return w.indexOf("표 합계") >= 0; })) h += '<p class="okm">표 맨 아래 합계와 일치합니다 ✓</p>';
+  warns.forEach(function(w){ h += '<p class="warn">⚠ ' + esc(w) + '</p>'; });
+  h += '<p style="font-size:12.5px;color:var(--muted)">「적용」을 누르면 지금의 수량이 이 값으로 바뀝니다. (결제완료와 수거 표시는 그대로이고, 표에서 읽은 결제금액은 해당 업체에 입력됩니다)</p>';
+  scanResult = rows; ovlShow(h, true);
+}
+function applyScan(){
+  if (!scanResult) return;
+  var next = {};
+  Object.keys(counts).forEach(function(nm){ var c = counts[nm]; var o = {}; if (c._amt) o._amt = c._amt; if (c._pk) o._pk = c._pk; if (c._paid) o._paid = c._paid; if (Object.keys(o).length) next[nm] = o; });
+  scanResult.forEach(function(x){
+    KINDS.forEach(function(k){ var n = Math.round(+x[k] || 0); if (n > 0 && n <= 50) { next[x.name] = next[x.name] || {}; next[x.name][k] = n; } });
+    var am = Math.round(+x["금액"] || 0); if (am > 0 && am < 100000000) { next[x.name] = next[x.name] || {}; next[x.name]._amt = am; }
+  });
+  counts = next; save(); refreshSelects(); renderSum(false);
+  var enc = {}; Object.keys(counts).forEach(function(nm){ enc[ek(nm)] = counts[nm]; });
+  fetch(BASE + "/counts.json", { method: "PUT", body: JSON.stringify(enc) }).catch(function(){ setSync(false, "저장 실패 · 연결을 확인하세요"); });
+  ovlHide();
+}
+document.getElementById("scanBtn").addEventListener("click", function(){ document.getElementById("scanFile").click(); });
+document.getElementById("scanFile").addEventListener("change", function(ev){
+  var f = ev.target.files && ev.target.files[0]; ev.target.value = ""; if (!f) return;
+  var btn = document.getElementById("scanBtn"); btn.disabled = true; btn.textContent = "사진을 읽는 중… (10~30초)";
+  var done = function(){ btn.disabled = false; btn.textContent = "📷 배송표 촬영해서 수량 자동 입력"; };
+  shrink(f, function(du){
+    if (!du) { done(); ovlShow('<p class="warn">사진을 열 수 없습니다.</p>', false); return; }
+    scanCall(du).then(function(j){ done(); showScan(j); }).catch(function(e){ done(); ovlShow('<h3>읽기 실패</h3><p class="warn">'+esc(e.message || e)+'</p>', false); });
+  });
+});
+document.getElementById("ovlNo").addEventListener("click", ovlHide);
+document.getElementById("ovlYes").addEventListener("click", applyScan);
+
 render();
+startSync();
 </script>
 </body></html>
